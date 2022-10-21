@@ -29,6 +29,7 @@ img {
     left: 50%;
     color: white;
     font-size: 34px;
+    z-index: 99;
 }
 
 .arrow-down{
@@ -37,4 +38,5 @@ img {
     left: 50%;
     color: white;
     font-size: 34px;
+    z-index: 99;
 }

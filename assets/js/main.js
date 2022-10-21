@@ -36,3 +36,95 @@ const images = [
 
 //mi seleziono il container a cui aggiungere le slide
 const slidesElementParent = document.querySelector(".container");
+
+//loop dentro l'array di oggetti
+images.forEach(immagine => {
+    
+    //creo l'elemento img
+    const imgEl = document.createElement('img');
+    imgEl.src = "./assets/" + immagine.image
+
+
+    //lo aggiungo all html
+    slidesElementParent.insertAdjacentElement("afterbegin", imgEl);
+
+});      
+
+//indice 0 gli metto la classe active
+slidesElementParent.firstElementChild.classList.add("active");
+
+
+//mi istanzio la variabile con l'indice della slide attiva
+let activeSlideCounter = 0;
+
+
+//all click del mouse sulla freccia che punta in alto
+const arrowUp = document.querySelector(".arrow-up > i")
+
+arrowUp.addEventListener("click", function () {
+
+    //per prendere la lista di slide
+    //per tutte le immagini presenti nel blocco
+    const slidesAll = document.querySelectorAll(".container > img");
+
+    const activeSlide = slidesAll[activeSlideCounter];
+
+    //tolgo classe active a quella con indice attiva
+    activeSlide.classList.remove("active");
+
+    //incremento active slide di uno 
+     //aggiungo un if se l'img è già indice massimo
+     if (activeSlideCounter === slidesAll.length -1){
+
+        activeSlideCounter = 0;
+    } else{
+        activeSlideCounter += 1;
+    }
+    
+
+    //selezionono l' immagine dopo 
+    const nextSlide = slidesAll[activeSlideCounter];
+
+    //e gli applico la classe
+    nextSlide.classList.add("active");
+
+
+})
+
+//all click del mouse sulla freccia che punta in basso
+const arrowDown = document.querySelector(".arrow-down > i")
+
+arrowDown.addEventListener("click", function () {
+
+    //per prendere la lista di slide
+    //per tutte le immagini presenti nel blocco
+    const slidesAll = document.querySelectorAll(".container > img");
+
+    const activeSlide = slidesAll[activeSlideCounter];
+
+    //tolgo classe active a quella con indice attiva
+    activeSlide.classList.remove("active");
+
+    //incremento active slide di uno 
+
+    //aggiungo un if se l'img è già indice 0
+    if (activeSlideCounter === 0){
+
+        activeSlideCounter = slidesAll.length -1;
+    } else{
+        activeSlideCounter -= 1;
+    }
+    
+
+    //selezionono l' immagine dopo 
+    const nextSlide = slidesAll[activeSlideCounter];
+
+    //e gli applico la classe
+    nextSlide.classList.add("active");
+
+
+})
+
+
+
+
