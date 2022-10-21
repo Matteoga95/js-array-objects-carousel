@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 70%;
+    max-width: 70%;
+    height: 400px;
+    margin: auto;
+    margin-top: 5px;
+    position: relative
+}
+
+.active {
+    display: block;
+}
+
+img {
+    display: none;
+    height: 100%;
+    margin: auto;
+}
+
+.arrow-up{
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    color: white;
+    font-size: 34px;
+}
+
+.arrow-down{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    color: white;
+    font-size: 34px;
+}
