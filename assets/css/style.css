@@ -23,6 +23,12 @@ img {
     margin: auto;
 }
 
+h3 {
+    display: none;
+    text-align: center;
+   font-size: 34px;
+}
+
 .arrow-up{
     position: absolute;
     top: 10px;

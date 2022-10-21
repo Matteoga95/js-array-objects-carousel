@@ -37,6 +37,9 @@ const images = [
 //mi seleziono il container a cui aggiungere le slide
 const slidesElementParent = document.querySelector(".container");
 
+//mi seleziono il container a cui aggiungere il testo
+const textElementParent = document.querySelector(".text");
+
 //loop dentro l'array di oggetti
 images.forEach(immagine => {
     
@@ -48,10 +51,20 @@ images.forEach(immagine => {
     //lo aggiungo all html
     slidesElementParent.insertAdjacentElement("afterbegin", imgEl);
 
+    //creo l'elemento testo
+    const textEl = document.createElement('h3');
+    textEl.innerText = immagine.title + '\n' + immagine.text
+
+     //lo aggiungo all html
+     textElementParent.insertAdjacentElement("afterbegin", textEl);
+
 });      
 
 //indice 0 gli metto la classe active
 slidesElementParent.firstElementChild.classList.add("active");
+
+textElementParent.firstElementChild.classList.add("active");
+
 
 
 //mi istanzio la variabile con l'indice della slide attiva
@@ -67,10 +80,16 @@ arrowUp.addEventListener("click", function () {
     //per tutte le immagini presenti nel blocco
     const slidesAll = document.querySelectorAll(".container > img");
 
+    const textAll = document.querySelectorAll(".text > h3");
+
+
+
     const activeSlide = slidesAll[activeSlideCounter];
+    const activeText = textAll[activeSlideCounter];
 
     //tolgo classe active a quella con indice attiva
     activeSlide.classList.remove("active");
+    activeText.classList.remove("active");
 
     //incremento active slide di uno 
      //aggiungo un if se l'img è già indice massimo
@@ -82,11 +101,13 @@ arrowUp.addEventListener("click", function () {
     }
     
 
-    //selezionono l' immagine dopo 
+    //selezionono l' immagine e il testo dopo 
     const nextSlide = slidesAll[activeSlideCounter];
+    const nextText = textAll[activeSlideCounter];
 
     //e gli applico la classe
     nextSlide.classList.add("active");
+    nextText.classList.add("active");
 
 
 })
@@ -99,11 +120,15 @@ arrowDown.addEventListener("click", function () {
     //per prendere la lista di slide
     //per tutte le immagini presenti nel blocco
     const slidesAll = document.querySelectorAll(".container > img");
+    const textAll = document.querySelectorAll(".text > h3");
+
 
     const activeSlide = slidesAll[activeSlideCounter];
+    const activeText = textAll[activeSlideCounter];
 
     //tolgo classe active a quella con indice attiva
     activeSlide.classList.remove("active");
+    activeText.classList.remove("active");
 
     //incremento active slide di uno 
 
@@ -116,11 +141,14 @@ arrowDown.addEventListener("click", function () {
     }
     
 
-    //selezionono l' immagine dopo 
-    const nextSlide = slidesAll[activeSlideCounter];
+     //selezionono l' immagine e il testo dopo 
+     const nextSlide = slidesAll[activeSlideCounter];
+     const nextText = textAll[activeSlideCounter];
+ 
 
     //e gli applico la classe
     nextSlide.classList.add("active");
+    nextText.classList.add("active");
 
 
 })
